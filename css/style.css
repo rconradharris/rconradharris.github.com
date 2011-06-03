@@ -18,6 +18,8 @@ body {
 
 h1 { color: #CCCCCC; }
 
+h1 > a { color: #CCCCCC; }
+
 h2, h3, h4, em {  color: #787878; }
 
 a { color: #787878; text-decoration: none; }
@@ -53,6 +55,7 @@ li { color: #CCCCCC; }
 li > a { color: #010101; }
 
 #footer {
-  margin-top: 20px;
   border-top: 1px solid #CCCCCC;
+  margin-top: 20px;
+  padding-top: 10px;
 }
