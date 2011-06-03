@@ -3,7 +3,7 @@ body {
   color: #010101;
   font-family: helvetica, arial, clean, sans-serif; 
   font-size: 12px;
-  margin: 50px;
+  margin: 200px;
   padding: 0px;
 }
 
@@ -12,6 +12,7 @@ h1, h2, h3, h4 {  color: #787878; }
 a { color: #7EAD01; }
 
 pre, code {
+  background-color: #010101;
   color: #66FF33;
   -x-system-font:none;
   font-family:"Bitstream Vera Sans Mono", Monaco, "Courier New", monospace;
@@ -24,8 +25,7 @@ pre, code {
 }
 
 pre {
-  background-color: #010101;
-  border: 1px solid #333;
   padding: 10px;
   line-height: 16px;
+  width: 400px;
 }
