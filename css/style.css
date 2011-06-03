@@ -44,14 +44,15 @@ pre {
   line-height: 16px;
 }
 
-pre > code {
-  color: #66FF33;
-}
+pre > code { color: #66FF33; }
 
-li {
-  color: #CCCCCC;
-}
+ul { list-style-type: none; }
 
-li > a {
-  color: #010101;
+li { color: #CCCCCC; }
+
+li > a { color: #010101; }
+
+#footer {
+  margin-top: 20px;
+  border-top: 1px solid #CCCCCC;
 }
