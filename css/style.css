@@ -2,8 +2,8 @@ body {
   clear: both;
   color: #010101;
   font-family: helvetica, arial, clean, sans-serif; 
-  font-size: 15px;
-  margin: 200px 25px 200px 0px;
+  font-size: 18px;
+  margin: 25px 200px 0px 200px;
   padding: 0px;
 }
 
@@ -24,12 +24,13 @@ pre, code {
 }
 
 pre {
+  font-size: 14px;
   background-color: #010101;
   margin: 25px;
   padding: 10px;
   line-height: 16px;
 }
 
-pre.code {
+code {
   color: #66FF33;
 }
