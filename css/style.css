@@ -10,3 +10,21 @@ body {
 h1, h2, h3, h4 {  color: #787878; }
 
 a { color: #7EAD01; }
+
+pre, code {
+  -x-system-font:none;
+  font-family:"Bitstream Vera Sans Mono", Monaco, "Courier New", monospace;
+  font-size-adjust:none;
+  font-stretch:normal;
+  font-style:normal;
+  font-variant:normal;
+  font-weight:normal;
+  line-height:normal;
+}
+
+pre {
+  background-color: #ccc;
+  border: 2px solid #333;
+  padding: 10px;
+  line-height: 16px;
+}
