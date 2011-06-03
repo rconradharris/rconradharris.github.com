@@ -3,8 +3,10 @@ layout: default
 title: rconradharris
 ---
 
-{% for post in site.posts limit:5 %}
+{% for post in site.posts limit:1 %}
   <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
   {{ post.content }}
   <em>Posted on {{ post.date | date_to_long_string }}.</em>
 {% endfor %}
+
+<center><a href="all.html">All Posts</a></center>
