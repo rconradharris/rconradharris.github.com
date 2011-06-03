@@ -4,11 +4,10 @@ title: rconradharris
 ---
 
 {% for post in site.posts limit:1 %}
-  <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
-  {{ post.content }}
-  <em>Posted on {{ post.date | date_to_long_string }}.</em>
+  <div id="post">
+    <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+    <em>Posted on {{ post.date | date_to_long_string }}.</em>
+    {{ post.content }}
+  </div>
 {% endfor %}
 
-<div id="footer">
-  <center><a href="all.html">All Posts</a></center>
-</div>

@@ -20,7 +20,12 @@ h1 { color: #CCCCCC; }
 
 h1 > a { color: #CCCCCC; }
 
-h2, h3, h4, em {  color: #787878; }
+h2, h3, h4 {  color: #787878; }
+
+em {
+  color: #787878; 
+  font-size: 10px;
+}
 
 a { color: #787878; text-decoration: none; }
 
