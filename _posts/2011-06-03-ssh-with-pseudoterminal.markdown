@@ -7,14 +7,14 @@ It's pretty common for me to execute the same commands on a remote machine
 everyday. I usually do something like:
 
     $ ssh <machine.domain.com>
-    screen -x   # reattach to irssi screen session
+    $ screen -x   # reattach to irssi screen session
 
 The most obvious optimization to make is to edit the `~/.ssh/config` file to
 alias `machine.domain.com` to something easier to type, like just `machine`.
 Now I can just type:
 
     $ ssh machine
-    screen -x   # reattach to irssi screen session
+    $ screen -x
 
 Of course, it would be nice if I didn't have to type `screen -x` each time as
 well. We can solve this by passing the commands to run on the remote maching
@@ -38,10 +38,10 @@ you'd like to run on a remote server, for example:
     $ ssh machine -t 'watch ps -eaf | grep <blah>'
 
 The final optimization we can make is to alias the whole command to something
-easy to type. Since I like to keep my aliases in a separate ~/.bash_aliases
-file, I run:
+easier to type. Since I like to keep my aliases in a separate
+`~/.bash_aliases` file, I'd run:
 
     $ echo alias irc='ssh machine -t "screen -x"' >> ~/.bash_aliases
 
-Now, all I have to do is type `irc` everyday and I'm right back into my IRC
+Now, all I have to do is type `irc` each morning and I'm right back into my IRC
 session.
