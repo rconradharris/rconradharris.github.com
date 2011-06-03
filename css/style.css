@@ -47,3 +47,11 @@ pre {
 pre > code {
   color: #66FF33;
 }
+
+li {
+  color: #CCCCCC;
+}
+
+li > a {
+  color: #010101;
+}
