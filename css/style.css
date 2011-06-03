@@ -1,10 +1,12 @@
 body {
-  color: #787878;
   clear: both;
+  color: #DDDDDD;
   font-family: helvetica, arial, clean, sans-serif; 
   font-size: 12px;
-  margin: 0px auto;
+  margin: 50px auto;
   padding: 0px;
 }
+
+h1, h2, h3, h4 {  color: #787878; }
 
 a { color: #7EAD01; }
