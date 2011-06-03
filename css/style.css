@@ -1,3 +1,12 @@
+/*
+ * Style Guide:
+ *
+ *    black  - #010101
+ *    green  - #66FF33
+ *    gray   - #787878;
+ *    ltgray - #CCCCCC;
+ */
+
 body {
   clear: both;
   color: #010101;
@@ -7,9 +16,13 @@ body {
   padding: 0px;
 }
 
-h1, h2, h3, h4, em {  color: #787878; }
+h1 { color: #CCCCCC; }
 
-a { color: #7EAD01; }
+h2, h3, h4, em {  color: #787878; }
+
+a { color: #787878; text-decoration: none; }
+
+a:hover { color: #66FF33 }
 
 pre, code {
   color: #787878;
