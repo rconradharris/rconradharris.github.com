@@ -19,7 +19,6 @@ off a new entry with a single command, something like:
     newpost My Snazzy New Blog Entry
 
 I wanted this to:
-
 * Create the properly named file under the `_posts` directory
 * Drop in the heading text automatically
 * Open the new file in my default text editor
@@ -27,7 +26,6 @@ I wanted this to:
 Of these, only the third was interesting. It turns out opening a file in a
 text-editor isn't as clear cut as I thought. There are really two routes you
 can go:
-
 * Old-school: Use EDITOR and VISUAL environment variables to open up a
   command-line editor
 * Newish: Invoke a system-specific command to choose the default-handler
