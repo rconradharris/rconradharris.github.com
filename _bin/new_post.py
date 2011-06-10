@@ -9,9 +9,9 @@ PATH = "~/Documents/code/rconradharris.github.com/_posts"
 
 
 def make_filename(title):
-    date_str = datetime.date.today().strftime("%Y_%m_%d")
-    filename_title = title.replace(' ', '_').replace('-', '_').lower()
-    return "%(date_str)s_%(filename_title)s.markdown" % locals()
+    date_str = datetime.date.today().strftime("%Y-%m-%d")
+    filename_title = title.replace(' ', '-').lower()
+    return "%(date_str)s-%(filename_title)s.markdown" % locals()
 
 
 def write_template(title, filepath):
@@ -26,7 +26,7 @@ title: %(title)s
 
 
 def open_in_editor(filepath):
-    # NOTE: Macs report 'posix' but don't have xdg-open
+    # NOTE: Macs are 'posix' but don't have xdg-open
     if platform.platform().startswith('Darwin'):
         subprocess.call(('open', filepath))
     elif os.name == 'nt':
