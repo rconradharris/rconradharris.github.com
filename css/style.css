@@ -31,6 +31,8 @@ a { color: #787878; text-decoration: none; }
 
 a:hover { color: #66FF33 }
 
+#content a { text-decoration: underline; }
+
 pre, code {
   color: #787878;
   -x-system-font:none;
