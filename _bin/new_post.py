@@ -10,7 +10,7 @@ PATH = "~/Documents/code/rconradharris.github.com/_posts"
 
 def make_filename(title):
     date_str = datetime.date.today().strftime("%Y_%m_%d")
-    filename_title = title.replace(' ', '_').replace('-', '_')
+    filename_title = title.replace(' ', '_').replace('-', '_').lower()
     return "%(date_str)s_%(filename_title)s.markdown" % locals()
 
 
