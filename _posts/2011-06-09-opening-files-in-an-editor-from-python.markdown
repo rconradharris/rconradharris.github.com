@@ -26,6 +26,7 @@ I wanted this to:
 Of these, only the third was interesting. It turns out opening a file in a
 text-editor isn't as clear cut as I thought. There are really two routes you
 can go:
+
 * Use EDITOR and VISUAL environment variables to open up a
   command-line editor
 * Invoke a system-specific command to choose the default-handler
