@@ -53,11 +53,11 @@ pre {
 
 pre > code { color: #66FF33; }
 
-ul { list-style-type: none; }
+ul#posts { list-style-type: none; }
 
-li { color: #CCCCCC; }
+ul#posts > li { color: #CCCCCC; }
 
-li > a { color: #010101; }
+ul#posts > li > a { color: #010101; }
 
 #footer {
   border-top: 1px solid #CCCCCC;

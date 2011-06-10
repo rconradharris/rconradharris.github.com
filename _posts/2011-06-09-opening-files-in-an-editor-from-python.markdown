@@ -26,10 +26,10 @@ I wanted this to:
 Of these, only the third was interesting. It turns out opening a file in a
 text-editor isn't as clear cut as I thought. There are really two routes you
 can go:
-* Old-school: Use EDITOR and VISUAL environment variables to open up a
+* Use EDITOR and VISUAL environment variables to open up a
   command-line editor
-* Newish: Invoke a system-specific command to choose the default-handler
-  based on the file's type.
+* Invoke a system-specific command to choose the default-handler
+  based on the file's type
 
 The route I decided to go with was using the system's text-file handler, which
 in my case is [MacVim](http://code.google.com/p/macvim/).  The one trick to
