@@ -42,6 +42,8 @@ command whereas other POSIX OSes use
 [StackOverflow](http://stackoverflow.com/questions/434597/open-document-with-default-application-in-python)
 with a small modification to handle the Mac case properly:
 
+    import platform, os, subprocess
+
     def open_in_editor(filepath):
         # NOTE: Macs are 'posix' but don't have xdg-open
         if platform.platform().startswith('Darwin'):
