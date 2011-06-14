@@ -78,7 +78,7 @@ Just one problem: it immediately raised an `AssertionError`. Turns out,
 `hotshot` has a [bug](http://bugs.python.org/issue900092)
 relating to how it deals with stack-frames when exceptions are
 raised. Worse, `hotshot` is no longer maintained; in fact, it was removed from
-Python 300 entirely.  So, getting this fixed is not only difficult, it's
+Python 3000 entirely.  So, getting this fixed is not only difficult, it's
 ultimately moot.
 
 So, to summarize:
