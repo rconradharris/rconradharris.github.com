@@ -34,7 +34,7 @@ problem to the profile plugin's `is_available()` function which, oddly,
 was returning `False`.
 
 This is particularly strange since `is_available` is determined by trying to
-import `hotshot` (a Python profiler) and `pstats` (a profile statistics
+import [`hotshot`](http://docs.python.org/library/hotshot.html) (a Python profiler) and [`pstats`](http://docs.python.org/library/profile.html) (a profile statistics
 helper), and both of these are part of the standard library. Looking more
 carefully, I noticed that the import was swallowing `ImportError` exceptions,
 so I decided to add a print statement:
@@ -90,7 +90,8 @@ So, to summarize:
    throws a completely unhelpful error of not finding the config option.
 3. `pstats` uses a bogus license that's more-or-less impossible to change
    because the people who created it are long gone.
-4. `nose` uses a deprecated profiler, `hotshot`, that has a major bug in it.
+4. `nose` uses a deprecated profiler, `hotshot`, that has a major bug in it
+   that's not likely to be fixed.
 
 
 Given the above, looks like I'll probably hand-roll a `cProfile` harness and
