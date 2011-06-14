@@ -29,11 +29,11 @@ to each line so you can go back later and remove the lines. Something like:
 
     print "got here => ", plugin  # RCH
 
-So, after some carefully placed `print`s and `raise`s, I finally traced the
+So, after some carefully placed `prints` and `raises`, I finally traced the
 problem to the profile plugin's `is_available()` function which, oddly,
 was returning `False`.
 
-This is particularly strange since `is_available` is determined by trying to
+This is particularly strange since the availability is determined by trying to
 import [`hotshot`](http://docs.python.org/library/hotshot.html) (a Python profiler) and [`pstats`](http://docs.python.org/library/profile.html) (a profile statistics
 helper), and both of these are part of the standard library. Looking more
 carefully, I noticed that the import was swallowing `ImportError` exceptions,
@@ -50,10 +50,10 @@ so I decided to add a print statement:
 
 Running this once more, I hit the root of the problem:
 
-    $ rick@maverick:~/openstack/nova/nova$ nosetests --with-profile nova/tests/test_vlan_network.py:VlanNetworkTestCase.test_too_many_addresses
+    $ nosetests --with-profile nova/tests/test_vlan_network.py:VlanNetworkTestCase.test_too_many_addresses
     No module named profile; please install the python-profiler package
 
-That's it. Apparently, the `pstats` module was missing. Shockingly, this means
+Apparently, the `pstats` module was missing. Alarmingly, this means
 that Ubuntu isn't shipping with the full Python
 standard-library. To fix this I ran:
 
@@ -74,12 +74,11 @@ only Python standard-library module like this.
 Anyway, after getting that sorted out, I was able to successfully run the
 nose-profiler.
 
-Just one problem: it raised an `AssertionError`. You see, it turns out `nose`
-is using `hotshot` as its profiler, and apparently `hotshot` has a
-[bug](http://bugs.python.org/issue900092)
-in it relating to how it deals with stack-frames when exceptions are
-triggered. To make matters worse, `hotshot` is no longer maintained and
-not even present in Python 3000; so, getting this fixed is not only difficult, it's
+Just one problem: it immediately raised an `AssertionError`. Turns out,
+`hotshot` has a [bug](http://bugs.python.org/issue900092)
+relating to how it deals with stack-frames when exceptions are
+raised. Worse, `hotshot` is no longer maintained; in fact, it was removed from
+Python 300 entirely.  So, getting this fixed is not only difficult, it's
 ultimately moot.
 
 So, to summarize:
@@ -87,7 +86,7 @@ So, to summarize:
 1. Ubuntu does not include the `pstats` module from the Python
    standard-library. You need to `apt-get python-profiler` to fetch it.
 2. `nose` silently fails if `hotshot` or `pstats` isn't present, and then
-   throws a completely unhelpful error of not finding the config option.
+   throws a completely unhelpful error regarding its options parsing.
 3. `pstats` uses a bogus license that's more-or-less impossible to change
    because the people who created it are long gone.
 4. `nose` uses a deprecated profiler, `hotshot`, that has a major bug in it
@@ -96,4 +95,3 @@ So, to summarize:
 
 Given the above, looks like I'll probably hand-roll a `cProfile` harness and
 just be done with it.
-
