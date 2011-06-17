@@ -51,6 +51,7 @@ pre {
   margin: 25px;
   padding: 10px;
   line-height: 16px;
+  overflow: hidden;
 }
 
 pre > code { color: #66FF33; }
