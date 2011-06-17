@@ -9,7 +9,7 @@ seconds, this one test is a major pain-point in a suite that is run on every
 check-in.
 
 To figure out why it was so slow, I decided to use
-[`nose`'s](http://somethingaboutorange.com/mrl/projects/nose/1.0.0/)
+[nose's](http://somethingaboutorange.com/mrl/projects/nose/1.0.0/)
 buillt-in profiling plugin which, according to the man page, is invoked with
 `--with-profile`. Unfortunately, this was the beginning of some serious pain:
 
