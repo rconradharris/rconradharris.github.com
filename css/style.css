@@ -16,7 +16,7 @@ body {
   padding: 0px;
 }
 
-h1 { color: #CCCCCC; }
+h1 { color: #CCCCCC; text-align: right; }
 
 h1 > a { color: #CCCCCC; }
 
@@ -55,11 +55,13 @@ pre {
 
 pre > code { color: #66FF33; }
 
-ul#posts { list-style-type: none; text-align: center; }
+ul#posts { list-style-type: none; text-align: left; }
 
 ul#posts li { color: #CCCCCC; }
 
 ul#posts li a { color: #010101; }
+
+#header { margin-bottom: 10px; }
 
 #footer {
   border-top: 1px solid #CCCCCC;
