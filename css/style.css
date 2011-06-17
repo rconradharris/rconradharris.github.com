@@ -44,7 +44,7 @@ pre, code {
 }
 
 pre {
-  font-size: 14px;
+  font-size: 12px;
   background-color: #010101;
   margin: 25px;
   padding: 10px;
@@ -63,7 +63,7 @@ ul#posts li a { color: #010101; }
 #header { margin-bottom: 10px; }
 
 #content {
-  width: 500px;
+  width: 650px;
   margin: 0px auto;
 }
 
