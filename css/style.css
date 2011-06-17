@@ -55,7 +55,7 @@ pre {
 
 pre > code { color: #66FF33; }
 
-ul#posts { list-style-type: none; }
+ul#posts { list-style-type: none; text-align: center; }
 
 ul#posts li { color: #CCCCCC; }
 
