@@ -3,6 +3,7 @@ layout: post
 title: A Todo List Workflow That Works
 ---
 
+
 Introduction
 ============
 
@@ -16,6 +17,13 @@ completely inflexible. As a tool you use all day, your todo list needs to
 completely match how you work or you'll end feeling miserable and eventually
 abandon it (see Jeff Atwood's polemic
 [Todon't](http://www.codinghorror.com/blog/2012/10/todont.html)).
+
+> Organized people use TODO lists, but TODO lists won't make you organized.
+
+The only solution I've found to work over the long term is to abandon the idea
+that a single *tool* can solve this problem, and instead develop a personal
+*workflow*
+
 
 The only solution I've found to work for me long-term (over 2 years and
 counting) is to abandon the idea that a single *tool* can solve this problem,
@@ -34,7 +42,7 @@ have been:
 * **FREEFORM:** The TODO list should be a single text file with minimal structure.
   This means that if you have raw data, tracebacks, or anything else, just paste it
   directly into the TODO list. Almost always, this data will be much more
-  useful to you then the short-description that todo-list apps require.
+  useful to you than the short-description that todo-list apps require.
 
 * **DAY-CENTRIC:** The list should be broken up into days. This allows you to see
   what you did yesterday at a glance (useful for standups). This also
@@ -161,7 +169,7 @@ condition is holding.
 Handling Sub-Tasks
 ------------------
 
-Subtasks are added by indenting them underneath the parent task, like so:
+Sub-tasks are added by indenting them underneath the parent task, like so:
 
     PENDING
 
@@ -170,9 +178,9 @@ Subtasks are added by indenting them underneath the parent task, like so:
       - Subtask2
 
 The key difference between sub-tasks and top-level tasks is that sub-tasks
-are't moved into the DONE section when completed. Instead, a `[DONE]` tag is
+aren't moved into the DONE section when completed. Instead, a `[DONE]` tag is
 added to the end of the line. When all of the sub-tasks are tagged as done,
-I then cut-and-paste the top-level-task and its associated subtasks into the
+I then cut-and-paste the top-level-task and its associated sub-tasks into the
 DONE section to mark it completed:
 
     DONE
