@@ -115,12 +115,12 @@ this document is completely freeform, so put anything you want here:
 
     - Fix whatever's causing this:
 
-  2012-11-29 21:47:59 TRACE nova   File "/opt/stack/nova/nova/compute/manager.py", line 3135, in update_available_resource
-  2012-11-29 21:47:59 TRACE nova     nodenames = self.driver.get_available_nodes()
-  2012-11-29 21:47:59 TRACE nova   File "/opt/stack/nova/nova/virt/driver.py", line 768, in get_available_nodes
-  2012-11-29 21:47:59 TRACE nova     return [s['hypervisor_hostname'] for s in stats]
-  2012-11-29 21:47:59 TRACE nova KeyError: 'hypervisor_hostname'
-  2012-11-29 21:47:59 TRACE nova 
+    2012-11-29 21:47:59 TRACE nova   File "/opt/stack/nova/nova/compute/manager.py", line 3135, in update_available_resource
+    2012-11-29 21:47:59 TRACE nova     nodenames = self.driver.get_available_nodes()
+    2012-11-29 21:47:59 TRACE nova   File "/opt/stack/nova/nova/virt/driver.py", line 768, in get_available_nodes
+    2012-11-29 21:47:59 TRACE nova     return [s['hypervisor_hostname'] for s in stats]
+    2012-11-29 21:47:59 TRACE nova KeyError: 'hypervisor_hostname'
+    2012-11-29 21:47:59 TRACE nova 
 
 
 Mark a Task Done
@@ -133,12 +133,12 @@ PENDING into the DONE section for the day.
 
     - Fix whatever's causing this:
 
-  2012-11-29 21:47:59 TRACE nova   File "/opt/stack/nova/nova/compute/manager.py", line 3135, in update_available_resource
-  2012-11-29 21:47:59 TRACE nova     nodenames = self.driver.get_available_nodes()
-  2012-11-29 21:47:59 TRACE nova   File "/opt/stack/nova/nova/virt/driver.py", line 768, in get_available_nodes
-  2012-11-29 21:47:59 TRACE nova     return [s['hypervisor_hostname'] for s in stats]
-  2012-11-29 21:47:59 TRACE nova KeyError: 'hypervisor_hostname'
-  2012-11-29 21:47:59 TRACE nova 
+    2012-11-29 21:47:59 TRACE nova   File "/opt/stack/nova/nova/compute/manager.py", line 3135, in update_available_resource
+    2012-11-29 21:47:59 TRACE nova     nodenames = self.driver.get_available_nodes()
+    2012-11-29 21:47:59 TRACE nova   File "/opt/stack/nova/nova/virt/driver.py", line 768, in get_available_nodes
+    2012-11-29 21:47:59 TRACE nova     return [s['hypervisor_hostname'] for s in stats]
+    2012-11-29 21:47:59 TRACE nova KeyError: 'hypervisor_hostname'
+    2012-11-29 21:47:59 TRACE nova 
 
     - Something else I did earlier
 
@@ -214,45 +214,47 @@ Here are some entries from my TODO list file that show how it (and this
 process) have evolved over time:
 
 
-First Entry:
+First Entry
+-----------
+
+    2010/10/13
+    ==========
+
+    #info {yesterday} Verified #T2164 for dabo, Fixed Python 2.6 compat bug in
+    glance, inter-review call
+    #info {yesterday} Troubleshot Iback issue w/ hinch, Drafted email explaining Iback enabling in Backstage
+    #info {today} grabbing and working a  blueprint for glance, review mergeprops
+    etc
+    done
+
+First Entry w/ PENDING and DONE sections
+----------------------------------------
+
+    2011-06-02
+
+    PENDING
+
+    DONE
+
+    - Writing blueprint for GlanceZones (pending feedback)
+    - Work on jk0's bug - decided to punt that to next sprint
+    - Fix 2b per B Waldons comments
+    - Demo Prep
+    - Looking at glance package issues with murkk, looks like ubuntu package is
+      built incorrectly, call `glance manage db sync` instead `db_sync` 
+    - Got comments from Jaypipes and Dubs on Glance Zones
+    - Reviewed JayPipes S3 Patch
 
 
-  2010/10/13
-  ==========
+First Entry w/ Sub-Tasks Tagged with [DONE]
+-------------------------------------------
 
-  #info {yesterday} Verified #T2164 for dabo, Fixed Python 2.6 compat bug in
-  glance, inter-review call
-  #info {yesterday} Troubleshot Iback issue w/ hinch, Drafted email explaining Iback enabling in Backstage
-  #info {today} grabbing and working a  blueprint for glance, review mergeprops
-  etc
-  done
+    2012-07-09
 
-First Entry w/ PENDING and DONE sections:
+    PENDING
 
-  2011-06-02
+    DONE
 
-  PENDING
-
-  DONE
-
-  - Writing blueprint for GlanceZones (pending feedback)
-  - Work on jk0's bug - decided to punt that to next sprint
-  - Fix 2b per B Waldons comments
-  - Demo Prep
-  - Looking at glance package issues with murkk, looks like ubuntu package is
-    built incorrectly, call `glance manage db sync` instead `db_sync` 
-  - Got comments from Jaypipes and Dubs on Glance Zones
-  - Reviewed JayPipes S3 Patch
-
-
-First Entry w/ Sub-Tasks Tagged with [DONE]:
-
-  2012-07-09
-
-  PENDING
-
-  DONE
-
-  - Fix migration
-    - Refactor migration [DONE]
-    - Make migration use import_vhd [DONE]
+    - Fix migration
+      - Refactor migration [DONE]
+      - Make migration use import_vhd [DONE]
