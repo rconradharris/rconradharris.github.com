@@ -70,7 +70,7 @@ My Workflow
 
 Probably the best way to describe this workflow is just to walk through some
 of the basic steps and, where appropriate, describe the few customizations
-I've done to `vim` to speed things up while also keeping-it-simple.
+I've done to `vim` to speed things up.
 
 
 Pull Up The List
@@ -187,7 +187,7 @@ DONE section to mark it completed:
       - Subtask2 [DONE]
 
 
-At the risk of over-auotmation, I also have a keybinding for this task:
+At the risk of over-automation, I also have a keybinding for this:
 
     nmap ,dn A [DONE]<ESC>
 
@@ -204,7 +204,7 @@ I find myself spending very little time actively thinking about my TODO list,
 and instead, rely on habits I've built up from using this on a day-to-day
 basis to move quickly from task to task.
 
-There's only enough structure to be useful and not a bit more.
+**There's only enough structure to be useful and not a bit more.**
 
 It's with this in mind that I challenge you to think about the TODO list app
 that you use and ask yourself how well it matches up with how you *really*
