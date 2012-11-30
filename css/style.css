@@ -16,13 +16,13 @@ body {
   padding: 0px;
 }
 
-h1 { color: #CCCCCC; text-align: right; }
+#title { text-align: center; }
+
+h1 { color: #CCCCCC }
 
 h1 > a { color: #CCCCCC; }
 
 h2, h3, h4 {  color: #787878; }
-
-em { color: #111111; }
 
 a { color: #787878; text-decoration: none; }
 

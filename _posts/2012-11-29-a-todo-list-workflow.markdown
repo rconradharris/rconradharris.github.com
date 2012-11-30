@@ -27,9 +27,9 @@ Design
 ======
 
 The workflow I've adopted wasn't really designed, but evolved over the years
-from trying a variety of approaches and finally settling on a relatively
-stable set of steps to manage my TODO list. Looking back though, the
-things I've found important have been:
+from trying a variety of approaches, finally settling on a relatively stable
+set of repeatable steps. Looking back, though, the things I've found important
+have been:
 
 * **FREEFORM:** The TODO list should be a single text file with minimal structure.
   This means that if you have raw data, tracebacks, or anything else, just paste it
@@ -82,8 +82,8 @@ the screen and open the TODO list file in the new pane:
 Add Today's Entry
 -----------------
 
-Each day get's a date heading and a section devoted to 'pending' and 'done'
-tasks and looks like:
+Each day gets a date heading and a section devoted to PENDING and DONE tasks
+and looks like:
 
     2012-11-29
 
@@ -96,8 +96,8 @@ tasks and looks like:
     - Finished this one
 
 
-Rather than having to type this out each day, I've chosen to automate this
-part as well:
+Rather than having to type this out each day, I've automated this part as
+well:
 
     nmap ,nd :r! date +"\%Y-\%m-\%d"<CR>$"="\nPENDING\n\n\n\nDONE\n\n"<CR>pjjj"="- "<CR>pA
 
@@ -172,7 +172,7 @@ Subtasks are added by indenting them underneath the parent task, like so:
 The key difference between sub-tasks and top-level tasks is that sub-tasks
 are't moved into the DONE section when completed. Instead, a `[DONE]` tag is
 added to the end of the line. When all of the sub-tasks are tagged as done,
-then I cut-and-paste the top-level-task and its associated subtasks into the
+I then cut-and-paste the top-level-task and its associated subtasks into the
 DONE section to mark it completed:
 
     DONE
@@ -182,8 +182,7 @@ DONE section to mark it completed:
       - Subtask2 [DONE]
 
 
-At the risk of over-auotmation, I also have a keybinding for adding the
-'[DONE]' tag as well:
+At the risk of over-auotmation, I also have a keybinding for this task:
 
     nmap ,dn A [DONE]<ESC>
 
@@ -210,8 +209,8 @@ inspriation for you to create a process that 100% works for you.
 Postscript
 ==========
 
-Here are some entries from my TODO list file that show how it (and this
-process) have evolved over time:
+Here are some entries from my TODO file that show how it (and this process)
+have evolved over time:
 
 
 First Entry
@@ -227,7 +226,7 @@ First Entry
     etc
     done
 
-First Entry w/ PENDING and DONE sections
+First Entry w/ PENDING and DONE Sections
 ----------------------------------------
 
     2011-06-02
@@ -246,8 +245,8 @@ First Entry w/ PENDING and DONE sections
     - Reviewed JayPipes S3 Patch
 
 
-First Entry w/ Sub-Tasks Tagged with [DONE]
--------------------------------------------
+First Entry w/ Sub-Tasks Tagged with DONE
+-----------------------------------------
 
     2012-07-09
 
