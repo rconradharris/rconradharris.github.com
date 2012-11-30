@@ -16,7 +16,7 @@ body {
   padding: 0px;
 }
 
-#title { text-align: center; }
+#post_title { font-size: 24px; text-align: center; }
 
 h1 { color: #CCCCCC }
 
@@ -57,7 +57,11 @@ ul#posts li { color: #CCCCCC; }
 
 ul#posts li a { color: #010101; }
 
-#header { margin-bottom: 10px; }
+#header {
+  text-align: right;
+  color: #CCCCCC;
+  margin-bottom: 10px;
+}
 
 #content {
   width: 650px;
