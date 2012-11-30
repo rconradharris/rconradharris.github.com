@@ -257,3 +257,13 @@ First Entry w/ Sub-Tasks Tagged with DONE
     - Fix migration
       - Refactor migration [DONE]
       - Make migration use import_vhd [DONE]
+
+
+Appendix
+========
+
+Commands in one place for pasting into your `.vimrc`:
+
+    nmap ,td :new ~/Documents/TODO<CR>
+    nmap ,nd :r! date +"\%Y-\%m-\%d"<CR>$"="\nPENDING\n\n\n\nDONE\n\n"<CR>pjjj"="- "<CR>pA
+    nmap ,dn A [DONE]<ESC>
