@@ -1,14 +1,10 @@
 ---
 layout: post
-title: A Todo List Workflow That Works For Me (And Might Work For You Too!)
+title: A Todo List Workflow That Works
 ---
 
-A Todo List Workflow That Works For Me (And Might Work For You Too!)
-====================================================================
-
-
 Introduction
-------------
+============
 
 My work-life revolves around my TODO list. It's how I structure my day, it
 gives me short-term goals to keep me motivated, and provides an easy way to
@@ -28,7 +24,7 @@ blog entry details my approach and may serve as inspriation as you develop
 your own process for getting-things-done.
 
 Design
-------
+======
 
 The workflow I've adopted wasn't really designed, but evolved over the years
 from trying a variety of approaches and finally settling on a relatively
@@ -64,7 +60,7 @@ things I've found important have been:
 
 
 My Workflow
------------
+===========
 
 
 Probably the best way to describe this workflow is just to walk through some
@@ -72,7 +68,8 @@ of the basic steps and, where appropriate, describe the few customizations
 I've done to `vim` to speed things up while also keeping-it-simple.
 
 
-### Pull Up The List
+Pull Up The List
+----------------
 
 This is something you're going to do many, many times a day, so this needs to
 be quick. To accomplish this, I've mapped a key sequence to horizontally split
@@ -82,7 +79,8 @@ the screen and open the TODO list file in the new pane:
   nmap ,td :new ~/Documents/TODO<CR>
 
 
-### Add Today's Entry
+Add Today's Entry
+-----------------
 
 Each day get's a date heading and a section devoted to 'pending' and 'done'
 tasks and looks like:
@@ -107,7 +105,8 @@ This creates the entry and drops you into insert mode on the first pending item 
 the day.
 
 
-### Add a Pending Task
+Add a Pending Task
+------------------
 
 To add a task, just create a new line under the PENDING section. Remember,
 this document is completely freeform, so put anything you want here:
@@ -124,7 +123,8 @@ this document is completely freeform, so put anything you want here:
 2012-11-29 21:47:59 TRACE nova 
 
 
-### Mark a Task Done
+Mark a Task Done
+----------------
 
 Marking a task done is accomplished by cutting and pasting the item from the
 PENDING into the DONE section for the day.
@@ -146,7 +146,8 @@ PENDING into the DONE section for the day.
 Trust me, `ddjjjp` will eventually feel way more satifying than clicking a checkbox.
 
 
-### Moving Unfinished Work
+Moving Unfinished Work
+----------------------
 
 Invariably you're going to have tasks that span multiple days. In this case,
 you just push forward any unfinished tasks by cutting them from the previous
@@ -157,7 +158,8 @@ It's a good idea to periodically scan down the list to make sure that
 condition is holding.
 
 
-### Handling Sub-Tasks
+Handling Sub-Tasks
+------------------
 
 Subtasks are added by indenting them underneath the parent task, like so:
 
@@ -187,7 +189,7 @@ At the risk of over-auotmation, I also have a keybinding for adding the
 
 
 That's It
----------
+=========
 
 That's all there is to it. With these simple operations, I'm able to keep
 track of what I have left to do, and see what I've done without having to futz
@@ -206,7 +208,7 @@ work. And if you find it wanting, hopefully this blog post serves as an
 inspriation for you to create a process that 100% works for you.
 
 Postscript
-----------
+==========
 
 Here are some entries from my TODO list file that show how it (and this
 process) have evolved over time:
