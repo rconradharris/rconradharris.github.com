@@ -12,24 +12,21 @@ gives me short-term goals to keep me motivated, and provides an easy way to
 recall what I did the day before for the daily standup.
 
 The problem I've run into is that todo list apps universally suck. They're
-often slow, mouse-centric, low information density, and most importantly
-completely inflexible. As a tool you use all day, your todo list needs to
-completely match how you work or you'll end feeling miserable and eventually
+slow, mouse-centric, low information density, and most importantly completely
+inflexible. As a tool you use all day, your todo list needs to completely
+match how you work (and think!) or you'll end feeling miserable and eventually
 abandon it (see Jeff Atwood's polemic
 [Todon't](http://www.codinghorror.com/blog/2012/10/todont.html)).
 
-> Organized people use TODO lists, but TODO lists won't make you organized.
+> Organized people may use todo lists, but todo lists won't make you organized.
 
-The only solution I've found to work over the long term is to abandon the idea
-that a single *tool* can solve this problem, and instead develop a personal
-*workflow*
+**The only solution I've found to work long term is to abandon the idea that a
+single *tool* can solve this problem, and instead focus on creating a
+*workflow* that best matches how you *really* get-things-done.**
 
-
-The only solution I've found to work for me long-term (over 2 years and
-counting) is to abandon the idea that a single *tool* can solve this problem,
-and instead develop a *workflow* that helps manage your day. The rest of this
-blog entry details my approach and may serve as inspriation as you develop
-your own process for getting-things-done.
+The rest of this post details my personal workflow which, even if it doesn't
+work for you, hopefully inspires you to take another look at how you stay
+organized.
 
 Design
 ======
@@ -202,10 +199,10 @@ That's all there is to it. With these simple operations, I'm able to keep
 track of what I have left to do, and see what I've done without having to futz
 with a separate tool.
 
-And as you can see, this workflow is simple, flexible, and most importantly, stays
-out of your way. I find myself spending very little time actively thinking
-about my TODO list, and instead, rely on habits I've built up using this on a
-day-to-day basis to move quickly from task to task.
+This workflow is simple, flexible, and most importantly, stays out of my way.
+I find myself spending very little time actively thinking about my TODO list,
+and instead, rely on habits I've built up from using this on a day-to-day
+basis to move quickly from task to task.
 
 There's only enough structure to be useful and not a bit more.
 
