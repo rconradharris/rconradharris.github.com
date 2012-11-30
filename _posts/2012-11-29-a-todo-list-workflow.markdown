@@ -206,10 +206,10 @@ basis to move quickly from task to task.
 
 There's only enough structure to be useful and not a bit more.
 
-It's with this in mind, that I challenge you to think about the TODO list app
+It's with this in mind that I challenge you to think about the TODO list app
 that you use and ask yourself how well it matches up with how you *really*
-work. And if you find it wanting, hopefully this blog post serves as an
-inspriation for you to create a process that 100% works for you.
+work. And if you find it wanting, hopefully, this blog post serves as an
+inspiration for you to create a process that 100% works for you.
 
 Postscript
 ==========
