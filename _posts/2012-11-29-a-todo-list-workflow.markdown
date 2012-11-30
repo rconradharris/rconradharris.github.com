@@ -76,7 +76,7 @@ be quick. To accomplish this, I've mapped a key sequence to horizontally split
 the screen and open the TODO list file in the new pane:
 
 
-  nmap ,td :new ~/Documents/TODO<CR>
+    nmap ,td :new ~/Documents/TODO<CR>
 
 
 Add Today's Entry
@@ -85,21 +85,21 @@ Add Today's Entry
 Each day get's a date heading and a section devoted to 'pending' and 'done'
 tasks and looks like:
 
-  2012-11-29
+    2012-11-29
 
-  PENDING
+    PENDING
 
-  - Not started yet
+    - Not started yet
 
-  DONE
+    DONE
 
-  - Finished this one
+    - Finished this one
 
 
 Rather than having to type this out each day, I've chosen to automate this
 part as well:
 
-  nmap ,nd :r! date +"\%Y-\%m-\%d"<CR>$"="\nPENDING\n\n\n\nDONE\n\n"<CR>pjjj"="- "<CR>pA
+    nmap ,nd :r! date +"\%Y-\%m-\%d"<CR>$"="\nPENDING\n\n\n\nDONE\n\n"<CR>pjjj"="- "<CR>pA
 
 This creates the entry and drops you into insert mode on the first pending item for
 the day.
@@ -111,16 +111,16 @@ Add a Pending Task
 To add a task, just create a new line under the PENDING section. Remember,
 this document is completely freeform, so put anything you want here:
 
-  PENDING
+    PENDING
 
-  - Fix whatever's causing this:
+    - Fix whatever's causing this:
 
-2012-11-29 21:47:59 TRACE nova   File "/opt/stack/nova/nova/compute/manager.py", line 3135, in update_available_resource
-2012-11-29 21:47:59 TRACE nova     nodenames = self.driver.get_available_nodes()
-2012-11-29 21:47:59 TRACE nova   File "/opt/stack/nova/nova/virt/driver.py", line 768, in get_available_nodes
-2012-11-29 21:47:59 TRACE nova     return [s['hypervisor_hostname'] for s in stats]
-2012-11-29 21:47:59 TRACE nova KeyError: 'hypervisor_hostname'
-2012-11-29 21:47:59 TRACE nova 
+  2012-11-29 21:47:59 TRACE nova   File "/opt/stack/nova/nova/compute/manager.py", line 3135, in update_available_resource
+  2012-11-29 21:47:59 TRACE nova     nodenames = self.driver.get_available_nodes()
+  2012-11-29 21:47:59 TRACE nova   File "/opt/stack/nova/nova/virt/driver.py", line 768, in get_available_nodes
+  2012-11-29 21:47:59 TRACE nova     return [s['hypervisor_hostname'] for s in stats]
+  2012-11-29 21:47:59 TRACE nova KeyError: 'hypervisor_hostname'
+  2012-11-29 21:47:59 TRACE nova 
 
 
 Mark a Task Done
@@ -129,18 +129,18 @@ Mark a Task Done
 Marking a task done is accomplished by cutting and pasting the item from the
 PENDING into the DONE section for the day.
 
-  DONE
+    DONE
 
-  - Fix whatever's causing this:
+    - Fix whatever's causing this:
 
-2012-11-29 21:47:59 TRACE nova   File "/opt/stack/nova/nova/compute/manager.py", line 3135, in update_available_resource
-2012-11-29 21:47:59 TRACE nova     nodenames = self.driver.get_available_nodes()
-2012-11-29 21:47:59 TRACE nova   File "/opt/stack/nova/nova/virt/driver.py", line 768, in get_available_nodes
-2012-11-29 21:47:59 TRACE nova     return [s['hypervisor_hostname'] for s in stats]
-2012-11-29 21:47:59 TRACE nova KeyError: 'hypervisor_hostname'
-2012-11-29 21:47:59 TRACE nova 
+  2012-11-29 21:47:59 TRACE nova   File "/opt/stack/nova/nova/compute/manager.py", line 3135, in update_available_resource
+  2012-11-29 21:47:59 TRACE nova     nodenames = self.driver.get_available_nodes()
+  2012-11-29 21:47:59 TRACE nova   File "/opt/stack/nova/nova/virt/driver.py", line 768, in get_available_nodes
+  2012-11-29 21:47:59 TRACE nova     return [s['hypervisor_hostname'] for s in stats]
+  2012-11-29 21:47:59 TRACE nova KeyError: 'hypervisor_hostname'
+  2012-11-29 21:47:59 TRACE nova 
 
-  - Something else I did earlier
+    - Something else I did earlier
 
 
 Trust me, `ddjjjp` will eventually feel way more satifying than clicking a checkbox.
@@ -163,11 +163,11 @@ Handling Sub-Tasks
 
 Subtasks are added by indenting them underneath the parent task, like so:
 
-  PENDING
+    PENDING
 
-  - Main task
-    - Subtask1
-    - Subtask2
+    - Main task
+      - Subtask1
+      - Subtask2
 
 The key difference between sub-tasks and top-level tasks is that sub-tasks
 are't moved into the DONE section when completed. Instead, a `[DONE]` tag is
@@ -175,17 +175,17 @@ added to the end of the line. When all of the sub-tasks are tagged as done,
 then I cut-and-paste the top-level-task and its associated subtasks into the
 DONE section to mark it completed:
 
-  DONE
+    DONE
 
-  - Main task
-    - Subtask1 [DONE]
-    - Subtask2 [DONE]
+    - Main task
+      - Subtask1 [DONE]
+      - Subtask2 [DONE]
 
 
 At the risk of over-auotmation, I also have a keybinding for adding the
 '[DONE]' tag as well:
 
-  nmap ,dn A [DONE]<ESC>
+    nmap ,dn A [DONE]<ESC>
 
 
 That's It
