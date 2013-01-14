@@ -177,9 +177,8 @@ use volumes.
         +--------------------------------------+-----------+-----------------+------+-------------+----------+-------------+
 
 
-
-Create an Instance and Attach the Volume
-========================================
+Attach Volume to Instance
+=========================
 
 
 1. Create the instance using whatever image and flavor combo you want:
@@ -218,13 +217,13 @@ the instance so that you can actually use it.
 
 4. Verify that the newly mounted volume has the correct size.
 
-      $ df -h
-      Filesystem            Size  Used Avail Use% Mounted on
-      /dev/xvda1             12G  738M   11G   7% /
-      tmpfs                  28M     0   28M   0% /lib/init/rw
-      udev                   15M   44K   15M   1% /dev
-      tmpfs                  28M     0   28M   0% /dev/shm
-      /dev/xvdb            1008M  1.3M  956M   1% /cindervol
+        $ df -h
+        Filesystem            Size  Used Avail Use% Mounted on
+        /dev/xvda1             12G  738M   11G   7% /
+        tmpfs                  28M     0   28M   0% /lib/init/rw
+        udev                   15M   44K   15M   1% /dev
+        tmpfs                  28M     0   28M   0% /dev/shm
+        /dev/xvdb            1008M  1.3M  956M   1% /cindervol
 
 
 We can see from the output, the newly-minted volume has the correct size so
