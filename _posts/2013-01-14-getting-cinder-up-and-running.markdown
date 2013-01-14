@@ -4,12 +4,12 @@ title: Getting Cinder Up and Running
 ---
 
 Lately I've been delving more-and-more into how Openstack handles block
-storage in the cloud. As part of that effort, I went through the process of
-setting up Cinder, Openstack's block-stroage API, wiring it up to Nova, and
-then using it to dynamically attach a volume to a running Nova instance.
+storage. As part of that effort, I went through the process of setting up
+Cinder, Openstack's block-stroage API, wiring it up to Nova, and then using it
+to dynamically attach a volume to a running Nova instance.
 
-This blog entry is just a quick summary of what I've learned in the process
-with special attention paid to a few gotchas I ran into along the way.
+This blog entry is just a quick summary of what I learned in the process with
+special attention paid to a few gotchas I ran into along the way.
 
 What is Cinder?
 ===============
@@ -36,8 +36,8 @@ or detaching of volumes, are the responsibility of Nova:  to use Cinder with
 Nova, you will have to use both `cinderclient` to create the volume, and then
 `novaclient` to attach it.
 
-Now that we have a high-level understanding of what Cinder is and isn't, let's
-go ahead install and actually use it. In particular, we're going to:
+Now that we have a basic understanding of Cinder, let's install and actually
+use it. In particular, we're going to:
 
 1. Install and configure Cinder using its LVM/ISCI backend
 
@@ -61,8 +61,7 @@ Install Cinder
 
 1. Clone the repo from the Openstack repo on Github:
 
-    $ git clone git://github.com/openstack/cinder.git
-
+        $ git clone git://github.com/openstack/cinder.git
 
 2. Copy the base configuration into /etc/cinder
 
@@ -98,12 +97,13 @@ Install Cinder
 
     include /home/rick/Documents/code/openstack/cinder/volumes/*
 
-8. Start the `tgt` daemon. This may display some errors, you can ignore those
-   for now. (see http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=577925)
+8. Start the `tgt` daemon. This may display some errors on startup. Those can
+   be ignored for now (see
+   http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=577925):
 
     $ /usr/sbin/tgtd
 
-9. Start the cinder API and associated services
+9. Start the cinder API and associated services:
 
     $ ./bin/cinder-all
 
