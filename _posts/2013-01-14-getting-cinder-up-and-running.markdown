@@ -5,7 +5,7 @@ title: Getting Cinder Up and Running
 
 Lately I've been delving more-and-more into how Openstack handles block
 storage. As part of that effort, I went through the process of setting up
-Cinder, Openstack's block-stroage API, wiring it up to Nova, and then using it
+Cinder, Openstack's block-storage API, wiring it up to Nova, and then using it
 to dynamically attach a volume to a running Nova instance.
 
 This blog entry is just a quick summary of what I learned in the process with
@@ -27,11 +27,10 @@ First, Cinder is really just an API that happens to ship with a backend you
 can use out of the box. This means you could use Cinder itself for storage
 (using its LVM and ISCSI drivers) or you could write a *Cinder compliant*
 storage-service to suit your own needs.  (If you're already familiar with
-Openstack, you'll recognize this same pluggable nature in the virt and network
-layers as well.)
+Openstack, you'll recognize this same plugin pattern used most across projects.)
 
 Second, Cinder does not understand compute, but compute understands Cinder.
-This means, areas where volumes and compute interesect, like in the attaching
+This means areas where volumes and compute intersect, like in the attaching
 or detaching of volumes, are the responsibility of Nova:  to use Cinder with
 Nova, you will have to use both `cinderclient` to create the volume, and then
 `novaclient` to attach it.
@@ -80,14 +79,17 @@ Install Cinder
         $ mysqladmin -uroot create cinder
         $ ./bin/cinder-manage db sync
 
-5. Configure LVM to manage the underlying block-storage. In my case, I'm using
-   a second partition but you could also use a loopback device as well:
+5. Configure
+   [LVM](http://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)) to
+   manage the underlying block-storage. In my case, I'm using a second
+   partition but you could also use a loopback device as well:
 
         $ apt-get install lvm2
         $ vgcreate cinder-volumes /dev/xvda2
         $ pvcreate /dev/xvda2
       
-6. Install TGT which will expose the block-storage over ISCSI:
+6. Install [tgt](http://stgt.sourceforge.net/) which will expose the
+   block-storage over ISCSI:
 
         $ apt-get install tgt
 
@@ -144,8 +146,9 @@ Configuring Nova to talk to Cinder
 ----------------------------------
 
 In order to attach volumes created with Cinder, Nova needs to know where the
-Cinder endpoint resides. To keep it simple, I'm not using Keystone
-(Openstack's Identity Service), and instead hard-coding the endpoint with the
+Cinder endpoint resides. To keep it simple, I'm not using
+[Keystone](http://docs.openstack.org/developer/keystone/) (Openstack's
+Identity Service), and instead hard-coding the endpoint with the
 `cinder_endpoint_template` configuration:
 
 1. Add the following to your `nova.conf`:
@@ -186,7 +189,7 @@ Attach Volume to Instance
         $ nova create --image <YOUR IMAGE> --flavor 1 myinstance
 
 2. Attach the volume to the running instance. To do this, you'll need so
-   specify what device indentifier the volume should have within the instance.
+   specify what device identifier the volume should have within the instance.
    Make sure you don't accidentally use a device identifier that's already
    been used. In this case, I know that `/dev/xvdc` is being used for swap and
    that `/dev/xvdb` is free, so I'll use that:
@@ -233,8 +236,9 @@ Further Reading
 ================
 
 The minimal Cinder setup we just created is great for learning the code and
-see how things fit together but, as you become more familar with it, you're
+see how things fit together but, as you become more familiar with it, you're
 probably going to want to expand to a more complex setup to take advantage of
-advanced features, for example Keystrone intetgration. Your two best bets here
+advanced features, for example Keystone integration. Your two best bets here
 are diving into the code itself (daunting at first, but print/raise statements
-are your friend) and checking out the documentation at `docs.openstack.org`.
+are your friend) and checking out the online
+[documentation](http://docs.openstack.org).
