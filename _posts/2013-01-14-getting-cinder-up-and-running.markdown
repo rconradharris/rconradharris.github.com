@@ -63,49 +63,48 @@ Install Cinder
 
         $ git clone git://github.com/openstack/cinder.git
 
-2. Copy the base configuration into /etc/cinder
+2. Copy the base configuration into `/etc/cinder`:
 
-    $ cp -R etc/cinder /etc/
+        $ cp -R etc/cinder /etc/
 
-    $ mv /etc/cinder/cinder.conf.sample /etc/cinder.conf
+        $ mv /etc/cinder/cinder.conf.sample /etc/cinder.conf
 
 
 3. Configure Cinder to use MySQL by adding this line to
-   /etc/cinder/cinder.conf:
+   `/etc/cinder/cinder.conf`:
 
-    sql_connection=mysql://root@127.0.0.1/cinder
+        sql_connection=mysql://root@127.0.0.1/cinder
 
 4. Create database and load schema:
 
-    $ mysqladmin -uroot create cinder
-    $ ./bin/cinder-manage db sync
+        $ mysqladmin -uroot create cinder
+        $ ./bin/cinder-manage db sync
 
 5. Configure LVM to manage the underlying block-storage. In my case, I'm using
    a second partition but you could also use a loopback device as well:
 
-    $ apt-get install lvm2
-    $ vgcreate cinder-volumes /dev/xvda2
-    $ pvcreate /dev/xvda2
+        $ apt-get install lvm2
+        $ vgcreate cinder-volumes /dev/xvda2
+        $ pvcreate /dev/xvda2
       
-
 6. Install TGT which will expose the block-storage over ISCSI:
 
-    $ apt-get install tgt
+        $ apt-get install tgt
 
 7. Configure tgt by editing /etc/tgt/targets.conf to add this line. Make sure
    to modify that line to point the `volumes` directory in `cinder` git repo:
 
-    include /home/rick/Documents/code/openstack/cinder/volumes/*
+        include /home/rick/Documents/code/openstack/cinder/volumes/*
 
 8. Start the `tgt` daemon. This may display some errors on startup. Those can
    be ignored for now (see
    http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=577925):
 
-    $ /usr/sbin/tgtd
+        $ /usr/sbin/tgtd
 
 9. Start the cinder API and associated services:
 
-    $ ./bin/cinder-all
+        $ ./bin/cinder-all
 
 
 Cinder now should be up and running but you still need a way to query and
@@ -118,28 +117,27 @@ Install Cinderclient
 
 1. Clone python-cinderclient from the Openstack GitHub repo:
 
-    $ git clone git://github.com/openstack/python-cinderclient.git
+        $ git clone git://github.com/openstack/python-cinderclient.git
 
 2. Now you need to install it
 
-    $ python setup.py develop
+        $ python setup.py develop
 
 3. Like other Openstack command-line tools, cinderclient uses environment
    variables for configuration, so you should create a config file and then
    source it, like:
 
-    $ cat cinder.env 
-    export OS_AUTH_URL=http://127.0.0.1:8776/v1/
-    export OS_USERNAME=<YOUR_USERNAME>
-    export OS_PASSWORD=<YOUR_PASSWORD>
-    export OS_TENANT_NAME=openstack
+        $ cat cinder.env 
+        export OS_AUTH_URL=http://127.0.0.1:8776/v1/
+        export OS_USERNAME=<YOUR_USERNAME>
+        export OS_PASSWORD=<YOUR_PASSWORD>
+        export OS_TENANT_NAME=openstack
 
-    $ . cinder.env
+        $ . cinder.env
 
 4. Now you can test that it works by running
 
-    $ cinder list  # <- should be emty since don't have any volumes yet
-
+        $ cinder list  # <- should be emty since don't have any volumes yet
 
 
 Configuring Nova to talk to Cinder
@@ -150,10 +148,10 @@ Cinder endpoint resides. To keep it simple, I'm not using Keystone
 (Openstack's Identity Service), and instead hard-coding the endpoint with the
 `cinder_endpoint_template` configuration:
 
-1. Add the following to your nova.conf:
+1. Add the following to your `nova.conf`:
 
-    volume_api_class=nova.volume.cinder.API
-    cinder_endpoint_template=http://localhost:8776/v1/%(project_id)s
+        volume_api_class=nova.volume.cinder.API
+        cinder_endpoint_template=http://localhost:8776/v1/%(project_id)s
 
 2. Restart nova-api and nova-compute
 
@@ -167,16 +165,16 @@ use volumes.
 
 1. Create a 1GB volume
 
-    $ cinder create --display_name cindervol 1
+        $ cinder create --display_name cindervol 1
 
-2. Check to see it exists:
+2. Check to see that it exists:
 
-    $ cinder list
-    +--------------------------------------+-----------+-----------------+------+-------------+----------+-------------+
-    |                  ID                  |   Status  |   Display Name  | Size | Volume Type | Bootable | Attached to |
-    +--------------------------------------+-----------+-----------------+------+-------------+----------+-------------+
-    | da6ae608-4673-4b24-acd4-75e527b5969a | available |    cindervol    |  1   |     None    |  false   |             |
-    +--------------------------------------+-----------+-----------------+------+-------------+----------+-------------+
+        $ cinder list
+        +--------------------------------------+-----------+-----------------+------+-------------+----------+-------------+
+        |                  ID                  |   Status  |   Display Name  | Size | Volume Type | Bootable | Attached to |
+        +--------------------------------------+-----------+-----------------+------+-------------+----------+-------------+
+        | da6ae608-4673-4b24-acd4-75e527b5969a | available |    cindervol    |  1   |     None    |  false   |             |
+        +--------------------------------------+-----------+-----------------+------+-------------+----------+-------------+
 
 
 
@@ -186,7 +184,7 @@ Create an Instance and Attach the Volume
 
 1. Create the instance using whatever image and flavor combo you want:
 
-    $ nova create --image <YOUR IMAGE> --flavor 1 myinstance
+        $ nova create --image <YOUR IMAGE> --flavor 1 myinstance
 
 2. Attach the volume to the running instance. To do this, you'll need so
    specify what device indentifier the volume should have within the instance.
@@ -194,7 +192,7 @@ Create an Instance and Attach the Volume
    been used. In this case, I know that `/dev/xvdc` is being used for swap and
    that `/dev/xvdb` is free, so I'll use that:
 
-     $ nova volume-attach myinstance da6ae608-4673-4b24-acd4-75e527b5969a /dev/xvdb
+         $ nova volume-attach myinstance da6ae608-4673-4b24-acd4-75e527b5969a /dev/xvdb
 
 
 Use the Attached Volume
@@ -205,28 +203,28 @@ the instance so that you can actually use it.
 
 1. First ensure that the device is present:
 
-    $ ls /dev/xvdb
-    /dev/xvdb
+        $ ls /dev/xvdb
+        /dev/xvdb
 
 2. Assuming it's present, you can now add a format it. If you want to use a
    specific filesystem, just add the appropriate options:
 
-    $ mkfs /dev/xvdb
+        $ mkfs /dev/xvdb
 
 3. Mount the newly formatted disk
 
-    $ mkdir /cindervol
-    $ mount /dev/xvdb /cindervol
+        $ mkdir /cindervol
+        $ mount /dev/xvdb /cindervol
 
 4. Verify that the newly mounted volume has the correct size.
 
-  $ df -h
-  Filesystem            Size  Used Avail Use% Mounted on
-  /dev/xvda1             12G  738M   11G   7% /
-  tmpfs                  28M     0   28M   0% /lib/init/rw
-  udev                   15M   44K   15M   1% /dev
-  tmpfs                  28M     0   28M   0% /dev/shm
-  /dev/xvdb            1008M  1.3M  956M   1% /cindervol
+      $ df -h
+      Filesystem            Size  Used Avail Use% Mounted on
+      /dev/xvda1             12G  738M   11G   7% /
+      tmpfs                  28M     0   28M   0% /lib/init/rw
+      udev                   15M   44K   15M   1% /dev
+      tmpfs                  28M     0   28M   0% /dev/shm
+      /dev/xvdb            1008M  1.3M  956M   1% /cindervol
 
 
 We can see from the output, the newly-minted volume has the correct size so
@@ -239,5 +237,5 @@ The minimal Cinder setup we just created is great for learning the code and
 see how things fit together but, as you become more familar with it, you're
 probably going to want to expand to a more complex setup to take advantage of
 advanced features, for example Keystrone intetgration. Your two best bets here
-are checking out the documentation at `docs.openstack.org` and reading thorugh
-the code itself.
+are diving into the code itself (daunting at first, but print/raise statements
+are your friend) and checking out the documentation at `docs.openstack.org`.
