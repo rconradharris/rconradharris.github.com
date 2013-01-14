@@ -27,16 +27,16 @@ First, Cinder is really just an API that happens to ship with a backend you
 can use out of the box. This means you could use Cinder itself for storage
 (using its LVM and ISCSI drivers) or you could write a *Cinder compliant*
 storage-service to suit your own needs.  (If you're already familiar with
-Openstack, you'll recognize this same plugin pattern used most across projects.)
+Openstack, you'll recognize this same plugin pattern used across most most
+projects.)
 
 Second, Cinder does not understand compute, but compute understands Cinder.
-This means areas where volumes and compute intersect, like in the attaching
-or detaching of volumes, are the responsibility of Nova:  to use Cinder with
-Nova, you will have to use both `cinderclient` to create the volume, and then
-`novaclient` to attach it.
+This means areas where volumes and compute intersect, like in the attaching or
+detaching of volumes to an instance, are the responsibility of Nova: meaning,
+to use Cinder with Nova, you will have to use both `cinderclient` to create
+the volume, and then `novaclient` to attach it.
 
-Now that we have a basic understanding of Cinder, let's install and actually
-use it. In particular, we're going to:
+With this in mind, let's install and actually use Cinder, specifically:
 
 1. Install and configure Cinder using its LVM/ISCI backend
 
