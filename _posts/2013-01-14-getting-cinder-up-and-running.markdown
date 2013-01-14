@@ -91,8 +91,8 @@ Install Cinder
 
         $ apt-get install tgt
 
-7. Configure tgt by editing /etc/tgt/targets.conf to add this line. Make sure
-   to modify that line to point the `volumes` directory in `cinder` git repo:
+7. Configure tgt by editing /etc/tgt/targets.conf to add this line, modifying
+   it to match the `volumes` directory in your `cinder` git repo:
 
         include /home/rick/Documents/code/openstack/cinder/volumes/*
 
@@ -123,7 +123,7 @@ Install Cinderclient
 
         $ python setup.py develop
 
-3. Like other Openstack command-line tools, cinderclient uses environment
+3. Like other Openstack command-line tools, `cinderclient` uses environment
    variables for configuration, so you should create a config file and then
    source it, like:
 
@@ -186,11 +186,11 @@ Attach Volume to Instance
 
         $ nova create --image <YOUR IMAGE> --flavor 1 myinstance
 
-2. Attach the volume to the running instance. To do this, you'll need so
-   specify what device identifier the volume should have within the instance.
-   Make sure you don't accidentally use a device identifier that's already
-   being used. In this case, I know that `/dev/xvdc` is being used for swap and
-   that `/dev/xvdb` is free, so I'll use that:
+2. Attach the volume to the running instance.
+
+    You'll need to specify a device identifier within your instance that isn't
+    being used. In my case, I know that `/dev/xvdc` is being used for swap but
+    that `/dev/xvdb` is free, so I'll use that:
 
          $ nova volume-attach myinstance da6ae608-4673-4b24-acd4-75e527b5969a /dev/xvdb
 
@@ -210,8 +210,7 @@ the instance so that you can actually use it.
         $ ls /dev/xvdb
         /dev/xvdb
 
-3. Assuming it's present, you can now add a format it. If you want to use a
-   specific filesystem, just add the appropriate option:
+3. Assuming it's present, you can now format it:
 
         $ mkfs /dev/xvdb
 
