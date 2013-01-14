@@ -79,10 +79,8 @@ Install Cinder
         $ mysqladmin -uroot create cinder
         $ ./bin/cinder-manage db sync
 
-5. Configure
-   [LVM](http://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)) to
-   manage the underlying block-storage. In my case, I'm using a second
-   partition but you could also use a loopback device as well:
+5. Configure LVM to manage the underlying block-storage. In my case, I'm using
+   a second partition but you could also use a loopback device as well:
 
         $ apt-get install lvm2
         $ vgcreate cinder-volumes /dev/xvda2
