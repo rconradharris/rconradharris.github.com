@@ -27,7 +27,7 @@ First, Cinder is really just an API that happens to ship with a backend you
 can use out of the box. This means you could use Cinder itself for storage
 (using its LVM and ISCSI drivers) or you could write a *Cinder compliant*
 storage-service to suit your own needs.  (If you're already familiar with
-Openstack, you'll recognize this same plugin pattern used across most most
+Openstack, you'll recognize this same plugin pattern used across most
 projects.)
 
 Second, Cinder does not understand compute, but compute understands Cinder.
