@@ -97,8 +97,7 @@ Install Cinder
         include /home/rick/Documents/code/openstack/cinder/volumes/*
 
 8. Start the `tgt` daemon. This may display some errors on startup. Those can
-   be ignored for now (see
-   http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=577925):
+   be [ignored for now](http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=577925):
 
         $ /usr/sbin/tgtd
 
@@ -119,7 +118,8 @@ Install Cinderclient
 
         $ git clone git://github.com/openstack/python-cinderclient.git
 
-2. Now you need to install it
+2. Install it in developer-mode, this will symlink installed Python package
+   back to your git repo:
 
         $ python setup.py develop
 
@@ -135,7 +135,7 @@ Install Cinderclient
 
         $ . cinder.env
 
-4. Now you can test that it works by running
+4. Now you can test that it works by running:
 
         $ cinder list  # <- should be emty since don't have any volumes yet
 
@@ -189,7 +189,7 @@ Attach Volume to Instance
 2. Attach the volume to the running instance. To do this, you'll need so
    specify what device identifier the volume should have within the instance.
    Make sure you don't accidentally use a device identifier that's already
-   been used. In this case, I know that `/dev/xvdc` is being used for swap and
+   being used. In this case, I know that `/dev/xvdc` is being used for swap and
    that `/dev/xvdb` is free, so I'll use that:
 
          $ nova volume-attach myinstance da6ae608-4673-4b24-acd4-75e527b5969a /dev/xvdb
@@ -201,22 +201,26 @@ Use the Attached Volume
 Now that the volume has been attached, you need to perform some setup within
 the instance so that you can actually use it.
 
-1. First ensure that the device is present:
+1. First, login to your instance
+
+        $ ssh myinstance
+
+2. Next, ensure that the device for new volume is present:
 
         $ ls /dev/xvdb
         /dev/xvdb
 
-2. Assuming it's present, you can now add a format it. If you want to use a
-   specific filesystem, just add the appropriate options:
+3. Assuming it's present, you can now add a format it. If you want to use a
+   specific filesystem, just add the appropriate option:
 
         $ mkfs /dev/xvdb
 
-3. Mount the newly formatted disk
+4. Mount the newly formatted disk
 
         $ mkdir /cindervol
         $ mount /dev/xvdb /cindervol
 
-4. Verify that the newly mounted volume has the correct size.
+5. Finally, verify that the newly mounted volume has the correct size.
 
         $ df -h
         Filesystem            Size  Used Avail Use% Mounted on
@@ -227,7 +231,7 @@ the instance so that you can actually use it.
         /dev/xvdb            1008M  1.3M  956M   1% /cindervol
 
 
-We can see from the output, the newly-minted volume has the correct size so
+We can see from the output, the Cinder-created volume has the correct size so
 the process has worked end-to-end.
 
 Further Reading
