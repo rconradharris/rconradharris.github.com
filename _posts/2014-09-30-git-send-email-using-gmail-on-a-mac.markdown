@@ -20,20 +20,20 @@ Assumptions
 ...but first. Let's start with some assumptions.
 
 * You're using a Mac
-* You have Homebrew installed
+* You have [Homebrew](http://brew.sh/) installed
 * You're using Gmail
 
 
 Configure System
 ================
 
-Gmail requires email to be sent via TLS which the Homebrew package of `git`
-doesn't support by default. So, the first thing we need to do is install the
-SSL Perl module:
+Gmail requires email to be sent via
+[TLS](http://en.wikipedia.org/wiki/Transport_Layer_Security) which the
+Homebrew package of `git` doesn't support by default. So, the first thing we
+need to do is install the SSL Perl module:
 
     brew install cpanm
     cpanm --sudo Net::SMTP::SSL
-
 
 In general, `--sudo` is not a good idea with Homebrew, but in this case it
 makes things easier by allowing `git` to find the Perl module in its default
