@@ -63,7 +63,7 @@ The next step is to add your Gmail settings to your `.gitconfig` file.
 Open up your `.gitconfig` and add the following stanza filled in with your
 personal information:
 
-[sendemail]
+    [sendemail]
     from = Your name <your-username@gmail.com>
     smtpserver = smtp.gmail.com
     smtpuser = your-name@gmail.com
@@ -76,11 +76,12 @@ personal information:
 Format Patch
 ============
 
-At tpis point, `git` should be configured to send email--you just need to
+At this point, `git` should be configured to send email; you just need to
 create your patch file and send it.
 
 To create your patch, you use the `git format-patch` command which will
-generate a patch in the `mbox` format,  appropriate for sending via email.
+generate a patch in the [mbox](http://en.wikipedia.org/wiki/Mbox) format,
+appropriate for sending via email.
 
 A common-case is to want to send the last commit. The command to do that would
 be:
@@ -110,8 +111,7 @@ Advanced - Multiple patch files
 ===============================
 
 If you're submitting multiple patches to the ML, it's convenient to store the
-patches in a separate directory so you can email and delete when you're done
-all at once.
+patches in a separate directory so you can email them all at once.
 
 To do this, use the `-o` option to `git-format-patch` to specify the output
 directory:
@@ -123,7 +123,7 @@ Now you can send these patches in one-shot using
 
     git send-email outgoing/*.patch
 
-Once the email has been sent, you can clean up with,
+Once the email has been sent, you can clean up with:
 
     rm outgoing/*.patch
     rmdir outgoing
