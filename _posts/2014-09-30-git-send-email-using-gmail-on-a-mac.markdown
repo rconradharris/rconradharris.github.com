@@ -7,8 +7,9 @@ title: git send-email using Gmail on a Mac
 Some open source projects, most famously the Linux kernel, require patches to
 be submitted by way of an email to their mailing list.
 
-If you're used to submitting patches using GitHub Pull-Requests or Gerrit
-reviews, the idea of sending a patch by email can be a bit daunting at first.
+If you're used to submitting patches using [GitHub](https://github.com)
+Pull-Requests or [Gerrit](https://code.google.com/p/gerrit/) reviews, the idea
+of sending a patch by email can be a bit daunting at first.
 
 Luckily, it's actually pretty simple! Here's how:
 
